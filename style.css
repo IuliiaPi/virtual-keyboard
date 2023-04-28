@@ -2,6 +2,12 @@
     --main-color: #545454;
     --input-border-color: lightgray;
     --bg-keyboard: rgb(34, 118, 171);
+    --bg-button: rgba(255, 255, 255, 0.2);
+    --button-color: azure;
+    --button-border-color: black;
+    --bg-button-dark: rgba(0, 0, 0, 0.25);
+    --button-hover: rgb(182, 182, 97);
+    --button-active: rgb(182, 182, 97);
 }
 
 .page {
@@ -48,6 +54,71 @@
     
     user-select: none;
     border-radius: 3px;
+}
+
+.row {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    text-align: center;
+}
+
+.btn {
+    height: 45px;
+    width: 6%;
+    max-width: 90px;
+    margin: 3px;
+    padding: 3px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+
+    font-size: 1.15rem;
+
+    border-radius: 5px;
+    border: 1px solid var(--button-border-color);
+    background: var(--bg-button);
+    color: var(--button-color);
+
+    outline: none;
+    cursor: pointer;
+    transition: all 0.6s ease;
+}
+
+.btn:hover {
+    background: var(--button-hover);
+}
+
+.btn_wide {
+    width: 12%;
+}
+
+.btn_extra-wide {
+    width: 36%;
+    max-width: 500px;
+}
+
+.btn_dark {
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.95px;
+    background: var(--bg-button-dark);
+}
+
+.btn_active {
+    background: var(--button-active);
 }
 
 .section-message {

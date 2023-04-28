@@ -1,3 +1,5 @@
+import keyboard from './keyboard.js';
+
 document.body.setAttribute('class', 'page');
 
 const container = document.createElement('div');
@@ -21,3 +23,26 @@ const sectionMessage = document.createElement('section');
 sectionMessage.setAttribute('class', 'section-message');
 sectionMessage.textContent = `This virtual keyboard was created in Mac. To switch ENG/UA input methods, press Ctrl+Alt on Windows or Cmd+Alt on Mac.`;
 container.append(sectionMessage);
+
+keyboard.forEach((row) => {
+    const rows = document.createElement('div');
+    rows.setAttribute('class', 'row');
+    sectionKeyboard.append(rows);
+
+    row.forEach((key) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.setAttribute('type', 'button');
+        rows.append(btn);
+
+        btn.innerHTML = key.text.en;
+
+        if (key.css) {
+            key.css.forEach((clazz) => {
+                btn.classList.add(clazz);
+            });
+        }
+
+    });
+
+});
