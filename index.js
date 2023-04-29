@@ -6,6 +6,15 @@ const container = document.createElement('div');
 container.setAttribute('class', 'page__inner');
 document.body.append(container);
 
+const header = document.createElement('header');
+header.setAttribute('class', 'header');
+container.append(header);
+
+const title = document.createElement('h1');
+title.setAttribute('class', 'title');
+title.innerText = `Virtual Keyboard`;
+header.append(title);
+
 const sectionInput = document.createElement('section');
 sectionInput.setAttribute('class', 'section-input');
 container.append(sectionInput);
@@ -46,3 +55,4 @@ keyboard.forEach((row) => {
     });
 
 });
+
