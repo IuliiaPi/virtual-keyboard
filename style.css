@@ -174,3 +174,20 @@ html {
     padding: 0px 5px;
     font-size: 14px;
 }
+
+@media (max-width: 1000px) {
+
+    .btn_dark {
+        font-weight: 300;
+        font-size: 0.75rem;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .btn_dark {
+        font-size: 0.55rem;
+    }
+
+}
