@@ -24,6 +24,9 @@ textarea.setAttribute('class', 'input-textarea');
 textarea.placeholder = `Tap on the virtual keyboard to start`;
 sectionInput.append(textarea);
 
+textarea.focus();
+textarea.addEventListener('blur', () => textarea.focus());
+
 const sectionKeyboard = document.createElement('section');
 sectionKeyboard.setAttribute('class', 'section-keyboard');
 container.append(sectionKeyboard);
@@ -52,7 +55,62 @@ keyboard.forEach((row) => {
             });
         }
 
+        btn.addEventListener('click', () => {
+            switch (key.text.en) {
+                case 'delete':
+                    deleteLastCharacter();
+                    break;
+                case 'tab':
+                    textarea.innerHTML += '   ';
+                    break;
+                case 'caps lock':
+                    textarea.innerHTML += '';
+                    break;
+                case 'return':
+                    textarea.innerHTML += '\n';
+                    break;
+                case 'shift':
+                    textarea.innerHTML += '';
+                    break;
+                case 'fn':
+                    textarea.innerHTML += '';
+                    break;
+                case 'control':
+                    textarea.innerHTML += '';
+                    break;
+                case 'option':
+                    textarea.innerHTML += '';
+                    break;
+                case 'command':
+                    textarea.innerHTML += '';
+                    break;
+                case ' ':
+                    textarea.innerHTML += ' ';
+                    break;
+                case '▲':
+                    textarea.innerHTML += '';
+                    break;
+                case '▼':
+                    textarea.innerHTML += '\n';
+                    break;
+                case '◄':
+                    textarea.innerHTML += '';
+                    break;
+                case '►':
+                    textarea.innerHTML += '';
+                    break;
+                default:
+                    textarea.innerHTML += btn.innerText;
+                    break;
+            }
+        });
+
     });
 
 });
+
+function deleteLastCharacter() {
+    let string = textarea.innerHTML;
+    textarea.innerHTML = string.substring(0, string.length - 1);
+}
 
