@@ -69,13 +69,13 @@ const keyboard = [
     },
     {
       text: {
-        EN: '-', en: '-', RU: '-', ru: '-',
+        EN: '_', en: '-', RU: '-', ru: '-',
       },
       keyCode: 'Minus',
     },
     {
       text: {
-        EN: '=', en: '=', RU: '=', ru: '=',
+        EN: '+', en: '=', RU: '=', ru: '=',
       },
       keyCode: 'Equal',
     },
@@ -101,12 +101,12 @@ const keyboard = [
     { text: { EN: 'O', en: 'o', ru: 'щ' }, css: '' },
     { text: { EN: 'P', en: 'p', ru: 'з' }, css: '' },
     { text: { EN: '{', en: '[', ru: 'х' }, css: '' },
-    { text: { EN: '}', en: ']', ru: 'ъ' }, css: '' },
-    { text: { EN: '|', en: '\\', ru: 'ё' }, css: '' },
+    { text: { EN: '}', en: ']', ru: 'ї' }, css: '' },
+    { text: { EN: '|', en: '\\', ru: 'ʼ' }, css: '' },
   ], [
     { text: { EN: 'caps lock', en: 'caps lock', ru: 'caps lock' }, css: ['btn_wide', 'btn_dark'], id: 'capsLock' },
     { text: { EN: 'A', en: 'a', ru: 'ф' }, css: '' },
-    { text: { EN: 'S', en: 's', ru: 'ы' }, css: '' },
+    { text: { EN: 'S', en: 's', ru: 'і' }, css: '' },
     { text: { EN: 'D', en: 'd', ru: 'в' }, css: '' },
     { text: { EN: 'F', en: 'f', ru: 'а' }, css: '' },
     { text: { EN: 'G', en: 'g', ru: 'п' }, css: '' },
@@ -115,7 +115,7 @@ const keyboard = [
     { text: { EN: 'K', en: 'k', ru: 'л' }, css: '' },
     { text: { EN: 'L', en: 'l', ru: 'д' }, css: '' },
     { text: { EN: ':', en: ';', ru: 'ж' }, css: '' },
-    { text: { EN: '"', en: "'", ru: 'э' }, css: '' },
+    { text: { EN: '"', en: "'", ru: 'є' }, css: '' },
     { text: { EN: 'return', en: 'return', ru: 'return' }, css: ['btn_wide', 'btn_dark'] },
   ], [
     { text: { EN: 'shift', en: 'shift', ru: 'shift' }, css: ['btn_wide', 'btn_dark'] },
