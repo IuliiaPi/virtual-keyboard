@@ -27,6 +27,15 @@ sectionInput.append(textarea);
 textarea.focus();
 textarea.addEventListener('blur', () => textarea.focus());
 
+let cursorStart = 0;
+let cursorEnd = 0;
+let isShift = false;
+
+textarea.addEventListener('click', () => {
+    cursorStart = textarea.selectionStart;
+    cursorEnd = textarea.selectionEnd;
+});
+
 const sectionKeyboard = document.createElement('section');
 sectionKeyboard.setAttribute('class', 'section-keyboard');
 container.append(sectionKeyboard);
@@ -55,6 +64,22 @@ keyboard.forEach((row) => {
             });
         }
 
+        document.addEventListener('keydown', function (event) {
+            if ((event.ctrlKey && event.altKey) || (event.metaKey && event.altKey)) {
+                btn.innerHTML = key.text.ru;
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'CapsLock') {
+                if (btn.innerHTML = key.text.en) {
+                    btn.innerHTML = key.text.EN;
+                } else {
+                    btn.innerHTML = key.text.en;
+                }
+            }
+        });
+
         btn.addEventListener('click', () => {
             switch (key.text.en) {
                 case 'delete':
@@ -65,6 +90,7 @@ keyboard.forEach((row) => {
                     break;
                 case 'caps lock':
                     textarea.innerHTML += '';
+                    btn.classList.toggle('btn_active');
                     break;
                 case 'return':
                     textarea.innerHTML += '\n';
@@ -95,9 +121,15 @@ keyboard.forEach((row) => {
                     break;
                 case '◄':
                     textarea.innerHTML += '';
+                    if (cursorStart !== 0) cursorStart -= 1;
+                    if (!isShift) cursorEnd = cursorStart;
+                    changeTextareaSelected();
                     break;
                 case '►':
                     textarea.innerHTML += '';
+                    if (cursorEnd !== textarea.length) cursorEnd += 1;
+                    if (!isShift) cursorStart = cursorEnd;
+                    changeTextareaSelected();
                     break;
                 default:
                     textarea.innerHTML += btn.innerText;
@@ -112,5 +144,10 @@ keyboard.forEach((row) => {
 function deleteLastCharacter() {
     let string = textarea.innerHTML;
     textarea.innerHTML = string.substring(0, string.length - 1);
+}
+
+function changeTextareaSelected() {
+    textarea.selectionStart = cursorStart;
+    textarea.selectionEnd = cursorEnd;
 }
 
